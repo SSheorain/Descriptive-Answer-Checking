@@ -1,19 +1,9 @@
-#LT Autograder. A system that automatically grades short answer essays.
-#Copyright (C) 2012 Luis Tandalla
-
-# This script was used in the training stage to label
-# the training essays with 1's or 0's if they have
-# the answers or not.
-# At the end, the script writes a file with the labels 
-# of each essay.
-# The script is not necessary to be run again.
-
 from feat import *
 
 import sys
 
 reader = open('../TrainingFile/train_rel_2.tsv', 'r' )
-SET = 4 #This number should be changed for each set 
+SET = 1 #This number should be changed for each set 
 
 possible_answers, fmatch = feat() # It reads the predefined possible answers
 possible_answer = possible_answers[SET]

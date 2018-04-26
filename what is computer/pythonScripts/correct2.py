@@ -32,8 +32,8 @@ class correct2:
     reader2 = file('../AdditionalFiles/ae2.txt').read()                      # It creates lexicon from
     self.lexicon = re.findall( r'(\w+)\n', str(reader2))  # file 'ae2.txt' 
     self.special = [] #It creates a  list of special words
-    if SET == 1:
-      self.special.extend( [ 'computer','electronic','machine','calculate','retrieve','data','information','device','programmable','instructions'])
+    #if SET == 1:
+    self.special.extend( [ 'computer','electronic','machine','calculate','retrieve','data','information','device','programmable','instructions'])
 
     #Create list of extra words
     self.extra = ['dont', 'etc' ,'didnt','cant','doesnt','isnt', 'hasnt', 'im','wouldnt','american','couldnt', 'wont','responsibility','wasnt','url','gpa','werent','hadnt','arent','shouldnt','werent']
