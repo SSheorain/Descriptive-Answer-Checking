@@ -43,6 +43,9 @@ for row in reader:
 
 	data[Id] = labels 
 	num_labels = len( possible_answer)
+	print 'Do you wsh to continue?\n'
+	cb = input('1. Continue \n 2. End\n')
+	if cb == 2: break
 
 
 ofile ="../TrainingCode/training/training_%d_label.csv" % ( SET )

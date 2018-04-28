@@ -25,6 +25,7 @@ def feat():
 	feat[1].append(	'mathemat and logic oper')
 	feat[1].append(	'execut')
 	feat[1].append(	'oper')
+	feat[1].append(	'calcul')
 
 	# With set 6, indexes of the answers were changed so that 
 	# they have the same indexes as the regular expressions.
