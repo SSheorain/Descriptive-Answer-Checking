@@ -1,6 +1,12 @@
 import re, time, sys, time
-from correct2 import * 
+from correct2 import * #correct2 is the file of the auto spell corrector
+
 def cleantext(text, cr, SET):
+	#Given the essay, the object spell corrector and the set, it returns
+	#the cleaned essay (mispelled words corrected, all words in lower case
+	#letters, non alphanumeric characters, and digits eliminated
+	#depending on the set)
+
 	text=text.lower()
 	text = text.replace('mr .', 'mr')
 	textn = ""
@@ -28,29 +34,33 @@ def cleantext(text, cr, SET):
 	return text #Return cleaned essay
 
 def process1( nameFileIn, nameFileOut, test):
+ #Clean all the essays from the file 'nameFileIn'
+ #and writes the new cleaned essay in the file 'nameFileOut'.
+ #Test is needed to know if the file is a training file or
+ #a test file
  
-	print 'Correcting Mispelled Words'
-		
-	reader = open( nameFileIn, 'r' )
-	fi = open( nameFileOut, 'w' )
+ print 'Correcting Mispelled Words'
+ Set = range(1,11)	
+ reader = open( nameFileIn, 'r' )
+ fi = open( nameFileOut, 'w' )
 
-	for row in reader: 
-		line = row.split('\t')
-		fi.write( "%s\t%s\t" % ( line[0] , line[1] ) )
-		if not test: fi.write( "%s\t%s\t" % ( line[2] , line[3] ) )
-		fi.write( line[len(line) -1] )
-		print "hello"
-		break
+ for row in reader: 
+	line = row.split('\t')
+	fi.write( "%s\t%s\t" % ( line[0] , line[1] ) )
+	if not test: fi.write( "%s\t%s\t" % ( line[2] , line[3] ) )
+	fi.write( line[len(line) -1] )
+	break
 
-	lines = []
+ lines = []
 
-	for row in reader:
-		lines.append( row.split('\t') )
+ for row in reader:
+	lines.append( row.split('\t') )
 
-	print "SET:\t1"
-	cr = correct2(1)	# Initialization of spell corrector
-	SET = str(1)
-
+ for SET in Set:
+	if SET == 1: print "SET:\t%d" % SET
+	cr = correct2(SET)	# Initialization of spell corrector
+	SET = str(SET)
+	
 	now = 0
 	for line in lines:				
 		if not line[1] == SET : continue

@@ -1,4 +1,8 @@
+#LT Autograder. A system that automatically grades short answer essays.
+#Copyright (C) 2012 Luis Tandalla
+
 import re, collections, sys
+#This file uses code from http://norvig.com/spell-correct.html
 
 def words(text): return re.findall('[a-z]+', text.lower()) 
   #It returns all the words from a text
@@ -18,7 +22,7 @@ def train(features):
 
 class correct2:
 
-  def __init__(self, SET = '1'):
+  def __init__(self, SET = '0'):
     # It creates lexicon (list of right words)
     # It creates a list of special words depending on the set
     # It creates a list of extra words
@@ -32,12 +36,37 @@ class correct2:
     reader2 = file('../AdditionalFiles/ae2.txt').read()                      # It creates lexicon from
     self.lexicon = re.findall( r'(\w+)\n', str(reader2))  # file 'ae2.txt' 
     self.special = [] #It creates a  list of special words
-    #if SET == 1:
-    self.special.extend( [ 'computer','electronic','machine','calculate','retrieve','data','information','device','programmable','instructions'])
+    if SET == 1:
+      #self.special.extend( [ 'vinegar','experiment','replicate','samples','containers','rinse'])
+	  self.special.extend( [ 'computer','electronic','machine','calculate','retrieve','data','information','device','programmable','instructions'])
+    '''if SET == 2:
+      #self.special.extend( [ 'stretchable','stretchability','stretchiest','unstretched'])
 
+    if SET == 3 or SET == 4:
+      #self.special.extend( [ 'generalist','federalist', 'generalists','federalists','python', 'pythons','mice','panda','koala','achenbach','koalas','pandas','alligator','alligators','lizzard','lizzards','crockadile','crockadiles'])
+      #self.special.extend( [ 'herbivores','vegetarians', 'pg', 'herbivore','vegetarian', 'repopulate','pg','raccoon','raccoons','australia','warmness','carnivores','carnivore' ,'antartica','macinnes','predator','predators'] )
+
+    if SET == 5 or SET == 6:
+      #self.special = ['rna', 'dna', 'trna', 'mrna', 'rrna', 'amino', 'golgi', 'er', 'codon', 'peptide', 'atp', 'membrane','anticodon','anticodons','codons','polypeptide' ]
+      #self.special.extend( [ 'corrosion','reticulum','endoplasmic','ribosomes','ribosome','lysosomes','lysosome','endocytosis','meiosis','mitochondria','phospolipids','metaphase','hypertonic','hypotonic'])
+      #self.special.extend( [ 'protein','proteins','telophase','phagocytosis','cellium','cytosis','osmosis','anaphase','homeostasis','exoplasmic','eukaryotes','exocytosis', 'prophase'])
+      #self.special.extend( [ 'vacuole','vacuoles','interphase','photosynthesis','solute','prokaryotes', 'mitochondrion','chromatid', 'ionic', 'chloroplast', 'nucleotide', 'nucleotides', 'permeability', 'nucleolus', 'flagellum', 'mutualism', 'organelle', 'organelles', 'permeable', 'cytoplasm', 'pseudopod', 'glycolysis', 'catalyst'])
+      #self.special.extend( [ 'movement','ribosomal' , 'cytokinesis','prokaryotic','eukaryotic','translocation','nucleus','isotonic'] )
+
+    if SET == 7:
+      #self.special.extend( [ 'paul',  'anna', 'kolab','angeles','cambodia','los','sacramento','hearted','hardworking'])
+    if SET == 8:      
+      #self.special.extend( [ 'mr', 'leonard', 'grabowski','obstacles','remediation','hurdler','hurdlers'])
+    if SET == 9:
+      #self.special.extend( [ 'microdebris','catalogues', 'microsatellites', 'subtopic','subtopics','nasa','astronauts','astronaut','catalogues','timeline', 'subtitles', 'toolbag','junk'])
+      #self.special.extend( [ 'micro','junk'])
+    if SET == 10:
+      #self.special.extend( [ 'deg','color' , 'attract','hotter','hottest','heat','cooler','coolest', 'black','gray','white'] )
+	'''
     #Create list of extra words
     self.extra = ['dont', 'etc' ,'didnt','cant','doesnt','isnt', 'hasnt', 'im','wouldnt','american','couldnt', 'wont','responsibility','wasnt','url','gpa','werent','hadnt','arent','shouldnt','werent']
     self.extra.extend ( ['don', 'etc' ,'didn','can','doesn','isn','ok', 'hasn', 'im','wouldn','american','couldn', 'won','wasn','url','gpa','weren','hadn','aren','shouldn','weren','mph','intro','cliche','micro','persuasive','sequential','hmm','tech','corrosion','kg'] )
+    #self.extra.extend ( ['miligram','ie','mm','ml','covalent','outlier','experiment','lb','hr', 'usa','mc','theyre','tv','uneased','peachy','unpleased','dismissive'] )
 
     self.lexicon.extend( self.special)
     self.lexicon.extend( self.extra)
@@ -243,39 +272,62 @@ class correct2:
         self.cache_union[ (word, wordn) ] = union
         return union
 
-    word = word.replace('electro', 'electronic')
-    if word in self.small_lexicon:    return word
-    if word == '.': return word 
-    if word == 'computr': return 'computer'
-    if word == 'alot': return 'a lot'
-    if word == 'informaton': return 'information'
-    if word == 'datta': return 'data'
-    if word == 'instruct': return 'instructions'
-    if word == 'programme': return 'programmable'
-    if word == 'digi': return 'digital'
-    if word == 'tha': return 'that'
-    if word == 'sol': return 'solve'
-    if word == 'fast': return 'faster'
-    if word == 'efficient': return 'efficiently'
-    if word == 'manipulate': return 'manipulates'
-    if word == 'comp': return 'computer'
-    if word == 'info': return 'information'
-    if word == 'CPU': return 'central processing unit'
-    if word == 'devic': return 'device'
-    if word == 'dosen': return 'doesnt'
-    if word == 'nt': return 'not'
-    if word == 'design': return 'designed'
-    if word == 'outter': return 'outer'
-    if word == 'tipe': return 'type'
-    if word == 'tripple': return 'triple'
-    if word == 'machines': return 'machine'
-    if word == 'latn': return 'Latin'
-    if word == 'fead': return 'feed'
-    if word == 'incase': return 'in case'
-    if word == 'themost': return 'the most'
-    if word == 'donot': return 'do not'
-    if word == 'ect': return 'etc'
-    if word == 'colour': return 'color'
+	word = word.replace('obsti', 'obstac')
+	if word in self.small_lexicon:    return word
+	if word == '.': return word 
+	if word == 'movment': return 'movement'
+	if word == 'alot': return 'a lot'
+	if word == 'careing': return 'caring'
+	if word == 'carring': return 'caring'
+	if word == 'ana': return 'anna'
+	if word == 'repete': return 'repeat'
+	if word == 'kalob': return 'kolab'
+	if word == 'maibe': return 'maybe'
+	if word == 'lable': return 'label'
+	if word == 'resturaunt': return 'restaurant'
+	if word == 'restraunt': return 'restaurant'
+	if word == 'stuned': return 'stunned'
+	if word == 'obsticles': return 'obstacles'
+	if word == 'greatful': return 'grateful'
+	if word == 'incommon': return 'in common'
+	if word == 'coudnt': return 'couldnt'
+	if word == 'dosen': return 'doesnt'
+	if word == 'nt': return 'not'
+	if word == 'excell': return 'excel'
+	if word == 'outter': return 'outer'
+	if word == 'amant' or word == 'amnt': return 'amount'
+	if word == 'tipe': return 'type'
+	if word == 'tripple': return 'triple'
+	if word == 'hrs': return 'hours'
+	if word == 'mins': return 'minutes'
+	if word == 'fead': return 'feed'
+	if word == 'incase': return 'in case'
+	if word == 'themost': return 'the most'
+	if word == 'expirement': return 'experiment'
+	if word == 'shrinked': return 'shrunken'
+	if word == 'donot': return 'do not'
+	if word == 'inchina': return 'in china'
+	if word == 'ect': return 'etc'
+	if word == 'colour': return 'color'
+	if word == 'computr': return 'computer'
+	if word == 'electro': return 'electronic'
+	if word == 'informaton': return 'information'
+	if word == 'datta': return 'data'
+	if word == 'instruct': return 'instructions'
+	if word == 'programme': return 'programmable'
+	if word == 'digi': return 'digital'
+	if word == 'tha': return 'that'
+	if word == 'sol': return 'solve'
+	if word == 'fast': return 'faster'
+	if word == 'efficient': return 'efficiently'
+	if word == 'manipulate': return 'manipulates'
+	if word == 'comp': return 'computer'
+	if word == 'info': return 'information'
+	if word == 'CPU': return 'central processing unit'
+	if word == 'devic': return 'device'
+	if word == 'design': return 'designed'
+	if word == 'machines': return 'machine'
+	if word == 'latn': return 'Latin'
              
     bigram = wordp + ' ' + word
     #It checks if a possible correction is available in the caches.

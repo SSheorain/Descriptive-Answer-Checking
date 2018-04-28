@@ -34,7 +34,7 @@ def feature1(**kwargs):
 	ans = '0'
 	pats = []
 	pats.append( re.compile(r"(\w+ ){0,4}(.*?)(comput|computer|Computer)+( \w+){0,4}") )
-	ans, line_match = feat(text, pats)	
+	ans, line_match = fet(text, pats)	
 	answer, fi, matchs, fi2 = update_ans( ans, line_match, fi, index, matchs, answer, fi2)
 
 
@@ -43,7 +43,7 @@ def feature1(**kwargs):
 	ans = '0'
 	pats = []
 	pats.append( re.compile(r"(\w+ ){0,4}(.*?)(electron|electronic|electric)+( \w+){0,4}") )
-	ans, line_match = feat(text, pats)	
+	ans, line_match = fet(text, pats)	
 	answer, fi, matchs, fi2 = update_ans( ans, line_match, fi, index, matchs, answer, fi2)
 
 	index += 1
@@ -51,7 +51,7 @@ def feature1(**kwargs):
 	ans = '0'
 	pats = []
 	pats.append( re.compile(r"(\w+ ){0,4}(.*?)(machin|machine|machines)+( \w+){0,4}") )
-	ans, line_match = feat(text, pats)	
+	ans, line_match = fet(text, pats)	
 	answer, fi, matchs, fi2 = update_ans( ans, line_match, fi, index, matchs, answer, fi2)
 
 	index += 1
@@ -59,7 +59,7 @@ def feature1(**kwargs):
 	ans = '0'
 	pats = []
 	pats.append( re.compile(r"(\w+ ){0,4}(.*?)(program|programmable)+( \w+){0,4}") )	
-	ans, line_match = feat(text, pats)	
+	ans, line_match = fet(text, pats)	
 	answer, fi, matchs, fi2 = update_ans( ans, line_match, fi, index, matchs, answer, fi2)
 
 
@@ -68,7 +68,7 @@ def feature1(**kwargs):
 	ans = '0'
 	pats = []
 	pats.append( re.compile(r"(\w+ ){0,4}(.*?)(set of (instruct|instruction|instructions))+( \w+){0,4}") )	
-	ans, line_match = feat(text, pats)	
+	ans, line_match = fet(text, pats)	
 	answer, fi, matchs, fi2 = update_ans( ans, line_match, fi, index, matchs, answer, fi2)
 
 	index += 1
@@ -76,7 +76,7 @@ def feature1(**kwargs):
 	ans = '0'
 	pats = []
 	pats.append( re.compile(r"(\w+ ){0,4}(.*?)(manipul|manipulate|manipulates)+( \w+){0,4}") )	
-	ans, line_match = feat(text, pats)	
+	ans, line_match = fet(text, pats)	
 	answer, fi, matchs, fi2 = update_ans( ans, line_match, fi, index, matchs, answer, fi2)
 
 	index += 1
@@ -84,7 +84,7 @@ def feature1(**kwargs):
 	ans = '0'
 	pats = []
 	pats.append( re.compile(r"(\w+ ){0,4}(.*?)(solv|solve|solves)+( \w+){0,4}") )	
-	ans, line_match = feat(text, pats)	
+	ans, line_match = fet(text, pats)	
 	answer, fi, matchs, fi2 = update_ans( ans, line_match, fi, index, matchs, answer, fi2)
 
 	index += 1
@@ -92,7 +92,7 @@ def feature1(**kwargs):
 	ans = '0'
 	pats = []
 	pats.append( re.compile(r"(\w+ ){0,4}(.*?)(problem|problems|prob)+( \w+){0,4}") )	
-	ans, line_match = feat(text, pats)	
+	ans, line_match = fet(text, pats)	
 	answer, fi, matchs, fi2 = update_ans( ans, line_match, fi, index, matchs, answer, fi2)
 
 	index += 1
@@ -100,7 +100,7 @@ def feature1(**kwargs):
 	ans = '0'
 	pats = []
 	pats.append( re.compile(r"(\w+ ){0,4}(.*?)(data|inform|information)+( \w+){0,4}") )	
-	ans, line_match = feat(text, pats)	
+	ans, line_match = fet(text, pats)	
 	answer, fi, matchs, fi2 = update_ans( ans, line_match, fi, index, matchs, answer, fi2)
 
 	index += 1
@@ -108,7 +108,7 @@ def feature1(**kwargs):
 	ans = '0'
 	pats = []
 	pats.append( re.compile(r"(\w+ ){0,4}(.*?)(programm|programming)+( \w+){0,4}") )	
-	ans, line_match = feat(text, pats)	
+	ans, line_match = fet(text, pats)	
 	answer, fi, matchs, fi2 = update_ans( ans, line_match, fi, index, matchs, answer, fi2)
 
 	index += 1
@@ -116,7 +116,7 @@ def feature1(**kwargs):
 	ans = '0'
 	pats = []
 	pats.append( re.compile(r"(\w+ ){0,4}(.*?)(devic|device|devices)+( \w+){0,4}") )
-	ans, line_match = feat(text, pats)		
+	ans, line_match = fet(text, pats)		
 	answer, fi, matchs, fi2 = update_ans( ans, line_match, fi, index, matchs, answer, fi2)
 
 	index += 1
@@ -124,7 +124,7 @@ def feature1(**kwargs):
 	ans = '0'
 	pats = []
 	pats.append( re.compile(r"(\w+ ){0,4}(.*?)(perform|performs)+( \w+){0,4}") )
-	ans, line_match = feat(text, pats)
+	ans, line_match = fet(text, pats)
 	answer, fi, matchs, fi2 = update_ans( ans, line_match, fi, index, matchs, answer, fi2)
 
 	index += 1
@@ -132,7 +132,7 @@ def feature1(**kwargs):
 	ans = '0'
 	pats = []
 	pats.append( re.compile(r"(\w+ ){0,4}(.*?)((gener|generate) result)+( \w+){0,4}") )
-	ans, line_match = feat(text, pats)
+	ans, line_match = fet(text, pats)
 	answer, fi, matchs, fi2 = update_ans( ans, line_match, fi, index, matchs, answer, fi2)
 
 	index += 1
@@ -140,7 +140,7 @@ def feature1(**kwargs):
 	ans = '0'
 	pats = []
 	pats.append( re.compile(r"(\w+ ){0,4}(.*?)(accept|accepts)+( \w+){0,4}") )
-	ans, line_match = feat(text, pats)
+	ans, line_match = fet(text, pats)
 	answer, fi, matchs, fi2 = update_ans( ans, line_match, fi, index, matchs, answer, fi2)
 
 	index += 1
@@ -148,7 +148,7 @@ def feature1(**kwargs):
 	ans = '0'
 	pats = []
 	pats.append( re.compile(r"(\w+ ){0,4}(.*?)((mathemat|mathematical) and logic (oper|operations))+( \w+){0,4}") )
-	ans, line_match = feat(text, pats)
+	ans, line_match = fet(text, pats)
 	answer, fi, matchs, fi2 = update_ans( ans, line_match, fi, index, matchs, answer, fi2)
 	
 	index += 1
@@ -156,7 +156,7 @@ def feature1(**kwargs):
 	ans = '0'
 	pats = []
 	pats.append( re.compile(r"(\w+ ){0,4}(.*?)(execut|execute|executes)+( \w+){0,4}") )
-	ans, line_match = feat(text, pats)
+	ans, line_match = fet(text, pats)
 	answer, fi, matchs, fi2 = update_ans( ans, line_match, fi, index, matchs, answer, fi2)
 
 	index += 1
@@ -164,7 +164,7 @@ def feature1(**kwargs):
 	ans = '0'
 	pats = []
 	pats.append( re.compile(r"(\w+ ){0,4}(.*?)(oper|operation|operations)+( \w+){0,4}") )
-	ans, line_match = feat(text, pats)
+	ans, line_match = fet(text, pats)
 	answer, fi, matchs, fi2 = update_ans( ans, line_match, fi, index, matchs, answer, fi2)
 	
 	index += 1
@@ -172,7 +172,7 @@ def feature1(**kwargs):
 	ans = '0'
 	pats = []
 	pats.append( re.compile(r"(\w+ ){0,4}(.*?)(calcul|calculation|calculation)+( \w+){0,4}") )
-	ans, line_match = feat(text, pats)
+	ans, line_match = fet(text, pats)
 	answer, fi, matchs, fi2 = update_ans( ans, line_match, fi, index, matchs, answer, fi2)
 
 	return answer, fi, fi2
