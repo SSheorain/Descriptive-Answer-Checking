@@ -1,9 +1,3 @@
-#LT Autograder. A system that automatically grades short answer essays.
-#Copyright (C) 2012 Luis Tandalla
-
-# This cripts makes some preprocessing steps. Some of the calculations and files produced
-# by it are not used in the final model. They are included because they were used in the
-# development phase
 
 import collections, re, math
 from analyze_essay import *

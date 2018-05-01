@@ -1,8 +1,4 @@
-#LT Autograder. A system that automatically grades short answer essays.
-#Copyright (C) 2012 Luis Tandalla
-
 import re, collections, sys
-#This file uses code from http://norvig.com/spell-correct.html
 
 def words(text): return re.findall('[a-z]+', text.lower()) 
   #It returns all the words from a text

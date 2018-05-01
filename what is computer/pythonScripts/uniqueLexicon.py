@@ -1,5 +1,3 @@
-#LT Autograder. A system that automatically grades short answer essays.
-#Copyright (C) 2012 Luis Tandalla
 
 import re
 
